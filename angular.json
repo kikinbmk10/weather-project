@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "weather-project"
+  "defaultProject": "weather-project",
+  "cli": {
+    "analytics": "73df2456-13e6-48e3-828e-27650c3abf2a"
+  }
 }

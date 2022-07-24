@@ -1,0 +1,91 @@
+/* ==========  Variables globales  ========== */
+
+/*----Colores----*/
+$bg-login: #32364a;
+$black: #000;
+$black-text: #212529;
+
+$blue-hover: #5a9ae8;
+$blue-strong: rgb(0, 83, 135);
+$blue-sky: #7fc1fc;
+$blue-wipe: #1b85dc;
+$blue-ckeck: #3689b4;
+$blue-selec: #b2ffff;
+
+$gray-border: #dee2e6;
+$gray-modal: #898989;
+$gray-text: #afb1be;
+
+$green: #37ce8a;
+$green-light: #9dbd59;
+$green-strong: #5A9A13;
+
+$hover-menu: rgb(3, 66, 105);
+
+$orange: rgb(245, 156, 59);
+$orange-strong: #DE6D2A;
+
+$red:#f2404e;
+$red-menu: #9E0819;
+$red-wine: #870053;
+
+$white: #fff;
+$white-noti: #f6f6f7;
+
+
+/* Sizes media */
+$w-space: 1248px;
+$mobile: 600px;
+$tablet: 900px;
+
+@mixin mobile {
+    @media screen and (max-width: $mobile) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media screen and (max-width: $tablet) {
+        @content;
+    }
+}
+
+
+/* ----Functions----  */
+
+/* Position */
+$position-default: null !default;
+
+@mixin position($type, $top: $position-default, $right: $position-default, $bottom: $position-default, $left: $position-default) {
+    position: $type;
+    $allowed_types: absolute relative fixed;
+    @if not index($allowed_types, $type) {
+        @warn "Unknown position: #{$type}.";
+    }
+    @each $data in top $top,
+    right $right,
+    bottom $bottom,
+    left $left {
+        #{nth($data, 1)}: nth($data, 2);
+    }
+}
+
+@mixin absolute($top: $position-default, $right: $position-default, $bottom: $position-default, $left: $position-default) {
+    @include position(absolute, $top, $right, $bottom, $left);
+}
+
+@mixin relative($top: $position-default, $right: $position-default, $bottom: $position-default, $left: $position-default) {
+    @include position(relative, $top, $right, $bottom, $left);
+}
+
+@mixin fixed($top: $position-default, $right: $position-default, $bottom: $position-default, $left: $position-default) {
+    @include position(fixed, $top, $right, $bottom, $left);
+}
+
+/* Display flex */
+@mixin flex($flex-dir: row, $justify: flex-start, $align: flex-start) {
+    display: flex;
+    flex-direction: $flex-dir;
+    justify-content: $justify;
+    align-items: $align;
+}
