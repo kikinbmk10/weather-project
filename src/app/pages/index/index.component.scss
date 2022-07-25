@@ -1,1 +1,73 @@
 @import "../../../scss/vars";
+
+// Header class and his content
+header{
+    position: relative;
+    @include flex(column, flex-start, center);
+    width: 100%;
+    background-color: $blue-header;
+    .header-container{
+        position: relative;
+        @include flex(row, space-between, center);
+        width: 100%;
+        max-width: $work-space;
+        padding: 16px;
+
+        h1 {
+            font-size: 2em;
+            color: #fff;
+        }
+        .languages {
+            position: relative;
+            @include flex(row, space-between, center);
+            height: auto;
+            color: #fff;
+            a{
+                margin: 0;
+                text-decoration: none;
+                color: #fff;
+                cursor: pointer;
+                &:hover{
+                    color: $white-noti;
+                    transition: all 250ms ease-in-out;
+                }
+            }
+        }
+    }
+}
+
+// Main section and his content
+section{
+    position: relative;
+    @include flex(column, flex-start, center);
+    width: 100%;
+
+    .main-content{
+        position: relative;
+        @include flex(row, space-between, center);
+        width: 100%;
+        max-width: $work-space;
+        padding: 16px;
+        border: solid 1px #000;
+
+        form {
+            @include flex(column, flex-start, flex-start);
+            width: 30%;
+            label {
+                margin-bottom: 8px;
+            }
+            select {
+                width: 100%;
+                border: solid 1px #555555;
+                border-radius: 16px;
+            }
+        }
+    }
+}
+
+// Class when change the language
+.idiomSelect {
+    color: $white-noti !important;
+    text-decoration: none;
+    transition: all 250ms ease-in-out;
+}

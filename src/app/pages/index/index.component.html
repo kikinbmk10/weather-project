@@ -1,3 +1,23 @@
 <header>
-    <h1>Header xd</h1>
+    <div class="header-container">
+        <h1>{{ 'Index.h1Title' | translate }}</h1>
+        <div class="languages">
+            <a [class.idiomSelect]="spanish" (click)="useLanguage('es')" >ES</a>&nbsp;|&nbsp;
+            <a [class.idiomSelect]="!spanish" (click)="useLanguage('en')">EN</a> 
+        </div>
+        <button class="btn-colision" (click)="dayNight()">{{ 'Index.btnLight' | translate }}</button>
+    </div>
 </header>
+<section>
+    <div class="main-content">
+        <form [formGroup]="cityForm" novalidate="novalidate">
+            <label for="dropdownCity">{{ 'Index.labelCity' | translate }}</label>
+            <select formControlName="dropdownCity" (change)="bringWeather()">
+                <option *ngFor="let city of listCities" [ngValue]="city.NameValue">{{ city.Name }}</option>
+            </select>
+        </form>
+        <div class="weather-section">
+
+        </div>
+    </div>
+</section>
