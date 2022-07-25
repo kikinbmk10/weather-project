@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Ciudad } from '../Models/Ciudades';
+import { Weather } from '../Models/Weather';
 
 @Injectable({
   providedIn: 'root'
@@ -57,8 +58,8 @@ export class WeatherService {
 
   constructor(private _http: HttpClient) { }
 
-  public getWeatherData(): Observable<any> {
-    return this._http.get<any>(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/guadalajara?unitGroup=metric&include=current&key=59A7RJPTJUTLR79VAU6QD6YQH&contentType=json`);
+  public getWeatherData(ciudad:string, lang: string): Observable<any> {
+    return this._http.get<Weather>(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${ciudad}/next7days?unitGroup=metric&elements=datetime%2Ctempmax%2Ctempmin%2Ctemp%2Chumidity%2Cprecip%2Cprecipprob%2Cwindspeed%2Cconditions%2Cicon&include=days&key=59A7RJPTJUTLR79VAU6QD6YQH&lang=${lang}&contentType=json`);
   }
 
   public getCiudades() {

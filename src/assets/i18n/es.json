@@ -2,6 +2,10 @@
     "Index": {
         "h1Title": "Clima de cada ciudad",
         "btnLight": "Día/Noche",
-        "labelCity": "Selecciona una ciudad"
+        "labelCity": "Selecciona una ciudad",
+        "labelWind": "Viento",
+        "labelHumidity": "Humedad",
+        "labelPrecip": "Prob. de precipitaciones",
+        "labelDate": "Fecha"
     }
 }

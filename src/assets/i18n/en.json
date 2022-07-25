@@ -1,8 +1,11 @@
 {
-    
     "Index": {
       "h1Title": "Weather of each city",
       "btnLight": "Day/Night",
-      "labelCity": "Select a city"
+      "labelCity": "Select a city",
+      "labelWind": "Wind",
+      "labelHumidity": "Humidity",
+      "labelPrecip": "Chance of precipitation",
+      "labelDate": "Date"
     }
 }

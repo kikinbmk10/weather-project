@@ -2,15 +2,14 @@
 
 /*----Colores----*/
 $blue-header: #A5C7EE;
-$blue-strong: rgb(0, 83, 135);
-$blue-sky: #7fc1fc;
-$blue-wipe: #1b85dc;
-$blue-ckeck: #3689b4;
-$blue-selec: #b2ffff;
-
-
-$white: #fff;
 $white-noti: #C7EEA5;
+
+// Font
+// -----
+@font-face {
+    font-family: 'Titilllium';
+    src: url('../assets/font/TitilliumWeb-Regular.ttf');
+}
 
 
 /* Sizes media */

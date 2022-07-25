@@ -14,8 +14,14 @@ header{
         padding: 16px;
 
         h1 {
-            font-size: 2em;
+            font-size: 2rem;
             color: #fff;
+            @include tablet{
+                font-size: 1.6rem;
+            }
+            @include mobile {
+                font-size: 1.2rem;
+            }
         }
         .languages {
             position: relative;
@@ -44,22 +50,124 @@ section{
 
     .main-content{
         position: relative;
-        @include flex(row, space-between, center);
+        @include flex(column, flex-start, center);
         width: 100%;
         max-width: $work-space;
         padding: 16px;
-        border: solid 1px #000;
 
         form {
             @include flex(column, flex-start, flex-start);
             width: 30%;
+            padding: 8px;
+            margin-bottom: 16px;
             label {
                 margin-bottom: 8px;
+                @include mobile {
+                    font-size: 14px;
+                }
             }
             select {
+                position: relative;
                 width: 100%;
-                border: solid 1px #555555;
+                border: solid 2px $blue-header;
                 border-radius: 16px;
+                &:focus-visible {
+                    border: solid 2px $blue-header;
+                }
+            }
+            @include tablet{
+                width: 50%;
+            }
+            @include mobile {
+                width: 100%;
+            }
+        }
+
+        .weather-section {
+            @include flex(column, flex-start, center);
+            width: 100%;
+            padding: 8px;
+            border: solid 1px $blue-header;
+            border-radius: 8px;
+            .w-s-city {
+                text-align: center;
+                margin-bottom: 8px;
+            }
+            .w-s-weather{
+                @include flex(row, space-around, center);
+                width: 100%;
+                .img-content{
+                    @include flex(column, flex-start, center);
+                    p {
+                        @include tablet {
+                            font-size: 14px;
+                        }
+                        @include mobile {
+                            font-size: 12px;
+                        }
+                    }
+                    img {
+                        @include mobile {
+                            height: 128px;
+                        }
+                    }
+                    @include mobile {
+                        height: 128px;
+                        margin-bottom: 8px;
+                    }
+                }
+                .w-s-temp {
+                    font-size: 3rem;
+                    @include tablet {
+                       font-size: 2.7rem;
+                    }
+                    @include mobile {
+                        font-size: 2.5rem;
+                    }
+                }
+                .w-s-others {
+                    p{
+                        @include tablet {
+                            font-size: 14px;
+                        }
+                        @include mobile {
+                            font-size: 12px;
+                            text-align: center
+                        }
+                    } 
+                }
+                @include mobile {
+                    @include flex(column, flex-start, center);
+                }
+            }
+            .w-s-next {
+                @include flex(row, space-between, center);
+                flex-wrap: wrap;
+                margin-top: 8px;
+                width: 100%;
+                .next-w-i {
+                    margin: 8px;
+                    @include mobile {
+                        @include flex(column, flex-start, center);
+                    }
+                    img {
+                        @include mobile {
+                            height: 80px;
+                        }
+                    }
+                }
+                .next-w-i div > p {
+                    @include tablet {
+                        font-size: 14px;
+                    }
+                    @include mobile {
+                        font-size: 12px;
+                        text-align: center;
+                    }
+                }
+                @include mobile {
+                    @include flex(row, space-evenly, center);
+                }
             }
         }
     }

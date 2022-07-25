@@ -5,7 +5,6 @@
             <a [class.idiomSelect]="spanish" (click)="useLanguage('es')" >ES</a>&nbsp;|&nbsp;
             <a [class.idiomSelect]="!spanish" (click)="useLanguage('en')">EN</a> 
         </div>
-        <button class="btn-colision" (click)="dayNight()">{{ 'Index.btnLight' | translate }}</button>
     </div>
 </header>
 <section>
@@ -16,8 +15,30 @@
                 <option *ngFor="let city of listCities" [ngValue]="city.NameValue">{{ city.Name }}</option>
             </select>
         </form>
-        <div class="weather-section">
-
+        <div *ngIf="dataWeather" class="weather-section">
+            <p class="w-s-city">{{ dataWeather.resolvedAddress }}</p>
+            <div class="w-s-weather">
+                <div class="img-content">
+                    <img src="assets/icons/{{ dataWeather.days[0].icon}}.png" alt="">
+                    <p>{{ dataWeather.days[0].conditions}}</p>
+                </div>
+                <p class="w-s-temp">{{ dataWeather.days[0].temp}}°c</p>
+                <div class="w-s-others">
+                    <p class="wind">{{ 'Index.labelWind' | translate }}: {{ dataWeather.days[0].windspeed }} km/h</p>
+                    <p class="precip">{{ 'Index.labelPrecip' | translate }}: {{ dataWeather.days[0].precipprob}}%</p>
+                    <p class="humidity">{{ 'Index.labelHumidity' | translate }}: {{ dataWeather.days[0].humidity}} %</p>
+                </div>
+            </div>
+            <div class="w-s-next">
+                <div class="next-w-i" *ngFor="let item of dataWeather.days; index as i">
+                    <img src="assets/icons/{{ item.icon}}.png" alt="">
+                    <div>
+                        <p>{{ 'Index.labelDate' | translate }}: {{ item.datetime }}</p>
+                        <p>Temp max: {{ item.tempmax}}</p>
+                        <p>Temp min: {{ item.tempmin}}</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
